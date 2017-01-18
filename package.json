@@ -1,6 +1,6 @@
 {
   "name": "joi-fun",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Validate function that lapping hapijs/joi creator.",
   "main": "./dist/index.js",
   "scripts": {
