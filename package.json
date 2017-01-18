@@ -1,0 +1,29 @@
+{
+  "name": "joi-fun",
+  "version": "0.0.0",
+  "description": "Validate function that lapping hapijs/joi creator.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc --outDir ./dist --sourceMap ./src/index.ts",
+    "test": "mocha --compilers ts:espower-typescript/guess $(find ./test/ -name '*.ts')"
+  },
+  "keywords": [
+    "joi",
+    "typescript"
+  ],
+  "author": "AKIRA-MIYAKE",
+  "license": "MIT",
+  "dependencies": {
+    "@types/joi": "^10.0.0",
+    "@types/node": "^7.0.0",
+    "joi": "^10.2.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.37",
+    "@types/power-assert": "^1.4.29",
+    "espower-typescript": "^7.0.0",
+    "mocha": "^3.2.0",
+    "power-assert": "^1.4.2",
+    "typescript": "^2.1.5"
+  }
+}
