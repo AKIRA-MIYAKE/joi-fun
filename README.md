@@ -9,13 +9,13 @@ $ npm install joi-fun
 
 ### Usage
 
-Call `createValidator()` with function that return joi schema object.  
-Validate function returns joi's ValidationResult object.  
+Call `createValidator()` with function that return joi schema object.
+Validate function returns joi's ValidationResult object.
 
-If you want to know you more schema definition, see joi's [API Reference](https://github.com/hapijs/joi/blob/v10.2.0/API.md).  
+If you want to know you more schema definition, see joi's [API Reference](https://github.com/hapijs/joi/blob/v10.2.0/API.md).
 
 ```
-const validator = createValidator<any>(
+const validator = createValidator<ValueType>(
   (joi) => joi.object().keys({
     username: joi.string().alphanum().min(3).max(30).required(),
     password: joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
@@ -30,9 +30,9 @@ const validator = createValidator<any>(
 const result = validator({ username: 'abc', birthyear: 1994 });
 ```
 
-`createValidator()` also accepts literal schema definition.  
+`createValidator()` also accepts literal schema definition.
 
 ```
-const validator = createValidator<any>(['key', 5, { a: true, b: [/^a/, 'boom'] }]);
+const validator = createValidator<ValueType>(['key', 5, { a: true, b: [/^a/, 'boom'] }]);
 const result = validator({ a: true, b: 'apple' })
 ```

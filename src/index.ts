@@ -16,7 +16,7 @@ export interface IJoi {
 }
 
 export interface IValidator<T> {
-  (value: T): joi.ValidationResult<T>;
+  (value: any): joi.ValidationResult<T>;
 }
 
 export interface ICreateSchema {
@@ -32,5 +32,5 @@ export const createValidator = <T>(createSchema: ICreateSchema | Object, options
     schema = joi.compile(createSchema);
   }
 
-  return (value: T) => joi.validate<T>(value, schema, options);
+  return value => joi.validate<T>(value, schema, options);
 }

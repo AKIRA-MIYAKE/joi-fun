@@ -32,4 +32,23 @@ describe('createValidator()', () => {
     assert.equal(validator({ a: false, b: 'bazz' }).error.details.length, 5);
   });
 
+  it('Validator return object that input interface compatible.', () => {
+    const validator = createValidator<{ str: string, num?: number }>((joi) => joi.object().keys({
+      str: joi.string().required(),
+      num: joi.number()
+    }));
+
+    const value1 = { str: 'test', num: '42' };
+    let result1 = validator(value1);
+
+    assert.ok(result1.value);
+    assert.equal(result1.value.str, 'test');
+    assert.equal(result1.value.num, 42);
+
+    const value2 = { num: 42 };
+    let result2 = validator(value2);
+
+    assert.ok(result2.error);
+  });
+
 });
