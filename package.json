@@ -1,8 +1,9 @@
 {
   "name": "joi-fun",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Validate function that lapping hapijs/joi creator.",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc && dts-generator --name joi-fun --project ./ --out ./dist/index.d.ts",
     "test": "mocha --compilers ts:espower-typescript/guess $(find ./test/ -name '*.ts')"
