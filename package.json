@@ -1,10 +1,10 @@
 {
   "name": "joi-fun",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Validate function that lapping hapijs/joi creator.",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "tsc --outDir ./dist --sourceMap ./src/index.ts",
+    "build": "tsc && dts-generator --name joi-fun --project ./ --out ./dist/index.d.ts",
     "test": "mocha --compilers ts:espower-typescript/guess $(find ./test/ -name '*.ts')"
   },
   "keywords": [
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/mocha": "^2.2.37",
     "@types/power-assert": "^1.4.29",
+    "dts-generator": "^2.0.0",
     "espower-typescript": "^7.0.0",
     "mocha": "^3.2.0",
     "power-assert": "^1.4.2",

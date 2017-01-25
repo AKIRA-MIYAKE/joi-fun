@@ -1,6 +1,6 @@
 import * as joi from 'joi';
 
-export interface IJoi {
+export interface Joi {
   any: () => joi.Schema;
   array: () => joi.ArraySchema;
   bool: () => joi.BooleanSchema;
@@ -15,15 +15,15 @@ export interface IJoi {
   compile: (schema: Object) => joi.Schema;
 }
 
-export interface IValidator<T> {
+export interface Validator<T> {
   (value: any): joi.ValidationResult<T>;
 }
 
-export interface ICreateSchema {
-  (joi: IJoi): joi.Schema;
+export interface CreateSchema {
+  (joi: Joi): joi.Schema;
 }
 
-export const createValidator = <T>(createSchema: ICreateSchema | Object, options: joi.ValidationOptions = { abortEarly: false }): IValidator<T> => {
+export const createValidator = <T>(createSchema: CreateSchema | Object, options: joi.ValidationOptions = { abortEarly: false }): Validator<T> => {
   let schema: joi.Schema;
 
   if (typeof createSchema === 'function') {
